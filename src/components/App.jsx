@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { ContactForm } from './ContactForm';
+import { ContactForm } from './ContactForm/ContactForm';
+import { ContactsList } from './ContactsList/ContactsList';
 
 export class App extends Component {
   state = {
@@ -22,6 +23,10 @@ export class App extends Component {
     return (
       <div>
         <ContactForm addContact={this.addContact}/>
+        <h2>Contacts</h2>
+        <p>Find contacts by name</p>
+        {/* тут фильтр инпут звичайний */}
+        <ContactsList contacts={this.state.contacts}/>
       </div>
     )
   }
