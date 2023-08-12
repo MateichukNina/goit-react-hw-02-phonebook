@@ -15,3 +15,14 @@ export const ContactsList = ({selectedContact, deleteContact}) => {
     </ul>
   )
 }
+
+
+ContactsList.propTypes = {
+  selectedContact: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
