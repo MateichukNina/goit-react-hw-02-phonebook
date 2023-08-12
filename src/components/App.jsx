@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactsList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
+import {AppWrapper} from './App.styled';
 
 export class App extends Component {
   state = {
@@ -39,13 +40,12 @@ export class App extends Component {
     ? contacts.filter(({ name }) => name.toLowerCase().includes(filter.toLowerCase()))
     : contacts;
     return (
-      <div>
+      <AppWrapper >
         <ContactForm addContact={this.addContact}/>
-        <h2>Contacts</h2>
-        <p>Find contacts by name</p>
+     
         <Filter filter={filter} newContact={this.newContact}/>
         <ContactsList selectedContact={selectedContact} deleteContact={this.deleteContact}/>
-      </div>
+      </AppWrapper>
     )
   }
 };

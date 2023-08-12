@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
-
+import {FilterInput, Input} from './Filter.styled';
 
 export const Filter = ({ filter, newContact }) => {
   return (
-    <div>
-      <input
+    <FilterInput>
+         <h2>Contacts</h2>
+        <p>Find contacts by name</p>
+      <Input
        
         placeholder="Search..."
         type="text"
@@ -12,7 +14,7 @@ export const Filter = ({ filter, newContact }) => {
         value={filter || ''}
         onChange={newContact}
       />
-    </div>
+    </FilterInput>
   );
 };
 

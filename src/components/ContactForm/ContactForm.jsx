@@ -1,6 +1,14 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik} from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
+import {
+    StyledForm,
+    StyledField,
+    StyledError,
+    StyledLable,
+    Button,
+  } from './ContactForm.styled';
 
 
 const ContactSchema = Yup.object().shape({
@@ -23,20 +31,24 @@ export const ContactForm = ({addContact}) => {
                 validationSchema={ContactSchema}
                 onSubmit={handleAddContact}
                 >
-                    <Form autoComplete="off">
-                        <label>
+                    <StyledForm autoComplete="off">
+                        <StyledLable>
                             Name
-                            <Field name="name" placeholder="Jane" />
-                            <ErrorMessage name="name" />
-                        </label>
-                        <label >
+                            <StyledField name="name" placeholder="Jane" />
+                            <StyledError name="name" />
+                        </StyledLable>
+                        <StyledLable >
                             Number
-                            <Field name="number" placeholder="Enter Phone"/>
-                            <ErrorMessage name="number" />
-                        </label>
-                        <button type="submit">Add Contact</button>
-                    </Form>
+                            <StyledField name="number" placeholder="Enter Phone"/>
+                            <StyledError name="number" />
+                        </StyledLable>
+                        <Button type="submit">Add Contact</Button>
+                    </StyledForm>
             </Formik>
         </div>
     )
 }
+
+ContactForm.propTypes = {
+    addContact: PropTypes.func.isRequired,
+  };
